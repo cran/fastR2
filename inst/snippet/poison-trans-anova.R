@@ -1,0 +1,2 @@
+anova(poison.lm2)
+
