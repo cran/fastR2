@@ -269,22 +269,28 @@ NULL
 #' @references Appeared in Devore's "Probability and Statsistics for Engineers and 
 #' the Sciences (6th ed).  The variables have been renamed.
 #' 
+#' #' Concrete Compressive Strength Data
 #' 
+#' These data were collected by I-Cheng Yeh to determine how the compressive
+#' strength of concrete is related to its ingredients (cement, blast furnace
+#' slag, fly ash, water, superplasticizer, coarse aggregate, and fine
+#' aggregate) and age.
 #' 
 #' @name ConcreteAll
 #' @rdname ConcreteAll
-#' @aliases ConcreteAll Concrete28
+#' @aliases ConcreteAll 
 #' @docType data
 #' @format \code{concreteAll} is a data frame with the following 9 variables.
 #' \itemize{ \item{cement}{ amount of cement (kg/m^3)}
 #' \item{slag}{ amount of blast furnace slag (kg/m^3)}
-#' \item{ash}{ amount of fly ash(kg/m^3)} \item{water}{ amount of
-#' water (kg/m^3)} \item{superP}{ amount of superplasticizer (kg/m^3)}
+#' \item{ash}{ amount of fly ash(kg/m^3)} 
+#' \item{water}{ amount of water (kg/m^3)} 
+#' \item{superP}{ amount of superplasticizer (kg/m^3)}
 #' \item{coarseAg}{ amount of coarse aggregate (kg/m^3)}
 #' \item{fineAg}{ amount of fine aggregate (kg/m^3)}
 #' \item{age}{ age of concrete in days }
 #' \item{strength}{ compressive strength measured in MPa} }
-#' \code{concrete28} is a subset of \code{concreteAll}.
+#' \code{Concrete} is a subset of \code{ConcreteAll}.
 #' @references I-Cheng Yeh (1998), "Modeling of strength of high performance
 #' concrete using artificial neural networks," \cite{Cement and Concrete
 #' Research}, Vol. 28, No. 12, pp. 1797-1808.
@@ -294,10 +300,9 @@ NULL
 #' @keywords datasets
 #' @examples
 #' 
-#' data(ConcreteAll)
-#' data(Concrete28)
+#' data(Concrete)
 #' 
-NULL
+"ConcreteAll"
 
 
 
@@ -878,7 +883,7 @@ NULL
 #' 
 #' data(Ice)
 #' gf_point(weight ~ skinfold, color = ~ sex, data = Ice)
-#' if (require(readr) && require(tidyr) && require(dplyr)) {
+#' if (require(readr) && require(tidyr)) {
 #'   Ice2 <- Ice %>% 
 #'   gather("key", "temp", b0:r12000) %>% 
 #'   separate(key, c("phase", "time"), sep = 1) %>% 
@@ -1015,8 +1020,73 @@ NULL
 #' question was on the survey} \item{homework}{ a factor with levels
 #' \code{A} \code{B}} }
 #' @keywords datasets
-#' @examples
 #' 
+#' @section Question Wording:
+#' 
+#' 1.1. Write down any number between 1 and 30 (inclusive).
+#' 
+#' 2.1. What is your favorite color? Choices: black red; green; purple; other
+#' 
+#' 2.2. What is your favorite color?
+#' 
+#' 3.1. What is your favorite zoo animal? Choices: giraffe; lion; elephant; other
+#' 
+#' 3.2. What is your favorite zoo animal?
+#' 
+#' 4.1. Measure and record your pulse.
+#' 
+#' 5.1. How much time have you spent watching TV in the last week?
+#' 
+#' 5.2. How much time have you spent watching TV in the last week? 
+#' Choises: none; under 1; hour 1-2 hours; 2-4 hours; more than 4 hours
+#' 
+#' 5.3. How much time have you spent watching TV in the last week? 
+#' Choises: under 1 hour; 1-2 hours; 2-4 hours; 4-8 hours;  more than 8 hours
+#' 
+#' 6.1. Social science researchers have conducted extensive empirical studies
+#'   and concluded that the expression "absence makes the heart grow fonder" is
+#'   generally true. Do you find this result surprising or not surprising?
+#'   
+#' 6.2. Social science researchers have conducted extensive empirical studies
+#'    and concluded that the expression "out of sight out of mind" is generally
+#'    true. Do you find this result surprising or not surprising?
+#'    
+#' 7.1. Suppose that you have decided to see a play for which the admission charge is $20 per ticket. 
+#'     As you prepare to purchase the ticket, you discover that you have lost a $20 bill. 
+#'     Would you still pay $20 for a ticket to see the play?
+#'     
+#' 7.2. Suppose that you have decided to see a play for which the admission charge is $20 per ticket. 
+#'     As you prepare to enter the theater, you discover that you have lost your ticket. 
+#'     Would you pay $20 to buy a new ticket to see the play?
+#'     
+#' 8.1. suppose that the United States is preparing for the outbreak of an unusual Asian disease that is 
+#'     expected to kill 600 people. Two alternative programs to combat the disease have been proposed. 
+#'     Assume that the exact scientific estimates of the consequences of the programs are as follows:
+#'     If program A is adopted, 200 people will be saved.
+#'     If program B is adopted, there is a 1/3 probability that 600 people will be saved 
+#'     and a 2/3 probability that nobody will be saved.
+#'     Which of the two programs would you favor? 
+#'     
+#' 8.2. Suppose that the United States is preparing for the outbreak of an unusual Asian disease that is 
+#'     expected to kill 600 people. two alternative programs to combat the disease have been proposed. 
+#'     Assume that the exact scientific estimates of the consequences of the programs are as follows:
+#'     
+#'     If program A is adopted, 400 people will die.
+#'     If program B is adopted, there is a 1/3 probability that no one will die and a 2/3 probability
+#'     that all 600 people will die.
+#'     Which of the two programs would you favor? A or B
+#' 
+#' 9.1. A national survey of college students revealed that professors at this college assign 
+#' "significantly more homework that the nationwide average for an institution of its type."
+#' How does this finding compare with your experience?  
+#'     Choises: a. That sounds about right to me; b that doesn't sound right to me.
+#'     
+#' 9.2. A national survey of college students revealed that professors at this college assign 
+#' an amount of homework that "is fairly typical for institutions of its type."
+#' How does this finding compare with your experience?
+#' Choices: A that sounds about right to me; b that doesn't sound right to me.
+#' 
+#' @examples
 #' data(LittleSurvey)
 #' tally(surprise ~ surprisever, data = LittleSurvey)
 #' tally(disease ~ diseasever, data = LittleSurvey)
@@ -1478,7 +1548,7 @@ NULL
 #' 
 #' data(Pigs)
 #' tally( ~ black, data = Pigs )
-#' if (require(dplyr) && require(tidyr)) {
+#' if (require(tidyr)) {
 #'   Pigs %>% 
 #'   select(roll, black, pink) %>%
 #'   gather(pig, state, black, pink) %>%
@@ -1500,25 +1570,36 @@ NULL
 #' @name Pitching2005
 #' @rdname Pitching2005
 #' @docType data
-#' @format A data frame with 653 observations on the following 27 variables.
+#' @format A data frame with 653 observations on the following 26 variables.
 #' \itemize{ \item{playerID}{ unique identifier for each player}
-#' \item{yearID}{ year} \item{stint}{ for players who played with
+#' \item{yearID}{ year} 
+#' \item{stint}{ for players who played with
 #' multiple teams in the same season, \code{stint} is increased by one each
-#' time the player joins a new team} \item{teamID}{ three-letter
-#' identifier for team} \item{lgID}{ league team plays in, coded as
-#' \code{AL} or \code{NL}} \item{W}{ wins} \item{L}{ losses}
-#' \item{G}{ games played in} \item{GS}{ games started}
-#' \item{CG}{ complete games} \item{SHO}{ shut outs}
-#' \item{SV}{ saves recorded} \item{IPouts}{ outs recorded
-#' (innings pitched, measured in outs rather than innings)}
-#' \item{H}{ hits allowed} \item{ER}{ earned runs allowed}
-#' \item{HR}{ home runs allowed} \item{BB}{ walks (bases on
-#' balls) allowed} \item{SO}{ strike outs} \item{BAOpp}{ opposing
-#' hitters' batting average} \item{ERA}{ earned run average}
-#' \item{IBB}{ intentional walks} \item{WP}{ wild pitches}
-#' \item{HBP}{ number of batters hit by pitch} \item{BK}{ balks}
-#' \item{BFP}{ batters faced pitching} \item{GF}{ ratio of ground
-#' balls to fly balls} \item{R}{ runs allowed} }
+#' time the player joins a new team} 
+#' \item{teamID}{ three-letter identifier for team} 
+#' \item{lgID}{ league team plays in, coded as \code{AL} or \code{NL}} 
+#' \item{W}{ wins} 
+#' \item{L}{ losses}
+#' \item{G}{ games played in} 
+#' \item{GS}{ games started}
+#' \item{CG}{ complete games} 
+#' \item{SHO}{ shut outs}
+#' \item{SV}{ saves recorded} 
+#' \item{IPouts}{ outs recorded (innings pitched, measured in outs rather than innings)}
+#' \item{H}{ hits allowed} 
+#' \item{ER}{ earned runs allowed}
+#' \item{HR}{ home runs allowed} 
+#' \item{BB}{ walks (bases on balls) allowed} 
+#' \item{SO}{ strike outs} 
+## \item{BAOpp}{ opposing hitters' batting average} 
+#' \item{ERA}{ earned run average}
+#' \item{IBB}{ intentional walks} 
+#' \item{WP}{ wild pitches}
+#' \item{HBP}{ number of batters hit by pitch} 
+#' \item{BK}{ balks}
+#' \item{BFP}{ batters faced pitching} 
+#' \item{GF}{ ratio of ground balls to fly balls} 
+#' \item{R}{ runs allowed} }
 #' @keywords datasets
 #' @examples
 #' 
@@ -2010,7 +2091,7 @@ NULL
 #' 
 #' data(Traffic)
 #' gf_line(cn.deaths ~ year, data = Traffic)
-#' if (require(dplyr) && require(tidyr)) {
+#' if (require(tidyr)) {
 #'   TrafficLong <- 
 #'     Traffic %>% 
 #'     select(-2) %>%
@@ -2071,10 +2152,10 @@ NULL
 #' @usage data(Unemployment)
 #' @format  A data.frame with 10 observations on the following 4 variables.
 #' \itemize{
-#'    item{code{unemp }}{unemployment rate}
-#'    item{code{production }}{[numeric]}
-#'    item{code{year }}{}
-#'    item{code{iyear }}{indexed year}
+#'    \item{\code{unemp }}{Millions of unemployed people}
+#'    \item{\code{production }}{Federal Reserve Board index of industrial production}
+#'    \item{\code{year }}{}
+#'    \item{\code{iyear }}{indexed year}
 #' }
 #' 
 #' @source 
