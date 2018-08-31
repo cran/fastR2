@@ -4,12 +4,15 @@
 \alias{snippet}
 \title{Display or execute a snippet of R code}
 \usage{
-snippet(name, execute = TRUE, view = !execute, echo = TRUE,
-  ask = getOption("demo.ask"), verbose = getOption("verbose"),
-  lib.loc = NULL, character.only = FALSE, regex = TRUE, max.files = 10L)
+snippet(name, eval = TRUE, execute = eval, view = !execute,
+  echo = TRUE, ask = getOption("demo.ask"),
+  verbose = getOption("verbose"), lib.loc = NULL,
+  character.only = FALSE, regex = NULL, max.files = 10L)
 }
 \arguments{
 \item{name}{name of snippet}
+
+\item{eval}{a logical.  An alias for `execute`.}
 
 \item{execute}{a logical.  If \code{TRUE}, snippet code is executed.  (The
 code and the results of the execution will be visible if \code{echo} is
@@ -37,8 +40,7 @@ The default value of NULL corresponds to all libraries currently known.}
 \item{character.only}{logical. If \code{TRUE}, use \code{name}as character
 string.}
 
-\item{regex}{a logical indicating whether regular expression matching will 
-be used.}
+\item{regex}{ignored.  Retained for backwards compatibility.}
 
 \item{max.files}{an integer limiting the number of files retrieved.}
 }
@@ -49,7 +51,24 @@ R}.
 }
 \details{
 \code{snippet} works much like \code{\link{demo}}, but the interface is
-simplified.
+simplified. Partial matching is used to select snippets, so any unique
+prefix is sufficient to specify a snippet.  Sequenced snippets (identified by
+trailing 2-digit numbers) will be executed in sequence if a unique prefix to
+the non-numeric portion is given.  To run just one of a sequence of snippets,
+provide the full snippet name.  See the examples.
+}
+\examples{
+snippet("normal01")
+# prefix works
+snippet("normal")
+# this prefix is ambiguous
+snippet("norm")
+# sequence of "histogram" snippets
+snippet("hist", eval = FALSE, echo = TRUE, view = FALSE)
+# just one of the "histogram" snippets
+snippet("histogram04", eval = FALSE, echo = TRUE, view = FALSE)
+# Prefix too short, but a helpful message is displayed
+snippet("h", eval = FALSE, echo = TRUE, view = FALSE)
 }
 \seealso{
 \code{\link{demo}}, \code{\link{source}}.

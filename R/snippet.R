@@ -5,7 +5,11 @@
 #' R}.
 #' 
 #' \code{snippet} works much like \code{\link{demo}}, but the interface is
-#' simplified.
+#' simplified. Partial matching is used to select snippets, so any unique
+#' prefix is sufficient to specify a snippet.  Sequenced snippets (identified by
+#' trailing 2-digit numbers) will be executed in sequence if a unique prefix to
+#' the non-numeric portion is given.  To run just one of a sequence of snippets,
+#' provide the full snippet name.  See the examples.
 #' 
 #' @param name name of snippet
 #' @param lib.loc character vector of directory names of R libraries, or NULL.
@@ -16,6 +20,7 @@
 #' printed.
 #' @param echo a logical. If \code{TRUE}, show the R input when executing.
 #' @param view a logical. If \code{TRUE}, snippet code is displayed 'as is'.
+#' @param eval a logical.  An alias for `execute`.
 #' @param execute a logical.  If \code{TRUE}, snippet code is executed.  (The
 #' code and the results of the execution will be visible if \code{echo} is
 #' \code{TRUE}.)
@@ -27,61 +32,105 @@
 #' device and to any devices opened by the demo code. If this is evaluated to
 #' \code{TRUE} and the session is interactive, the user is asked to press
 #' RETURN to start.
-#' @param regex a logical indicating whether regular expression matching will 
-#' be used.
+#' @param regex ignored.  Retained for backwards compatibility.
 #' @param max.files an integer limiting the number of files retrieved.
 #' @author Randall Pruim
 #' @seealso \code{\link{demo}}, \code{\link{source}}.
 #' @keywords utilities
 #' @importFrom utils file_test head
 #' @export
+#' @examples
+#' snippet("normal01")
+#' # prefix works
+#' snippet("normal")
+#' # this prefix is ambiguous
+#' snippet("norm")
+#' # sequence of "histogram" snippets
+#' snippet("hist", eval = FALSE, echo = TRUE, view = FALSE)
+#' # just one of the "histogram" snippets
+#' snippet("histogram04", eval = FALSE, echo = TRUE, view = FALSE)
+#' # Prefix too short, but a helpful message is displayed
+#' snippet("h", eval = FALSE, echo = TRUE, view = FALSE)
 snippet <-
-function (name, execute = TRUE, view = !execute, echo = TRUE, 
-    ask = getOption("demo.ask"), verbose = getOption("verbose"), 
-    lib.loc = NULL, character.only = FALSE, regex = TRUE, max.files = 10L) 
-{
+  function (name, eval = TRUE, execute = eval, view = !execute, echo = TRUE, 
+            ask = getOption("demo.ask"), verbose = getOption("verbose"), 
+            lib.loc = NULL, character.only = FALSE, regex = NULL, max.files = 10L) 
+  {
+    
+    if (!character.only) {
+      name <- as.character(substitute(name))
+    }
+    
+    # RChunks is internal data with two columns (full_name and base_name) listing
+    # all available R chunks for snippet() *in the order they appear in the book*
+    
+    base_name_idx <- charmatch(name, unique(RChunks$base_name))
+    if (is.na(base_name_idx)) { # ie, no match found, try full name
+      full_name_idx <- charmatch(name, RChunks$full_name)
+      if (is.na(full_name_idx)) {
+        stop("No match found for ", name)
+      }
+      if (full_name_idx == 0) { # multiple matches
+        message("Multiple matches found for `", name, "': \n  ", 
+             paste(
+               sort(grep(paste0("^", name), RChunks$full_name, value = TRUE)), 
+               collapse = ", ")
+        )
+        return(invisible(NULL))
+      }
+      matching_files <- 
+        paste0(RChunks$full_name[full_name_idx], ".R")
+    } else if (base_name_idx == 0) { # multiple matches
+      message("Multiple matches found for `", name, "': \n  ", 
+              paste(
+                sort(grep(paste0("^", name), unique(RChunks$base_name), value = TRUE)), 
+                collapse = ", ")
+      )
+      return(invisible(NULL))
+    } else {
+      prefix <- unique(RChunks$base_name)[base_name_idx]
+      matching_files <- 
+        paste0(RChunks$full_name[RChunks$base_name == prefix], ".R")
+      
+    }
+    
     package <- "fastR2"
     paths <- find.package(package, lib.loc, verbose = verbose)
     paths <- paths[utils::file_test("-d", file.path(paths, "snippet"))]
     available <- character(0L)
     paths <- file.path(paths, "snippet")
-    if (missing(name)) {
-        for (p in paths) {
-            files <- basename(tools::list_files_with_type(p, 
-                "code"))
-            available <- c(available, tools::file_path_sans_ext(files))
-        }
-        return(available)
-    }
-    if (!character.only) 
-        name <- as.character(substitute(name))
+    # if (missing(name)) {
+    #     for (p in paths) {
+    #         files <- basename(tools::list_files_with_type(p, 
+    #             "code"))
+    #         available <- c(available, tools::file_path_sans_ext(files))
+    #     }
+    #     return(available)
+    # }
     for (p in paths) {
-        snippet_files <- basename(tools::list_files_with_type(p, "code"))
-        if (regex) {
-          matching_files <- grep(name, snippet_files, value = TRUE)
-        } else {
-          matching_files <- files[name == tools::file_path_sans_ext(files)]
-        }
-        if (length(matching_files)) 
-            available <- c(available, file.path(p, matching_files))
+      snippet_files <- basename(tools::list_files_with_type(p, "code"))
+      
+      if (length(matching_files)) {
+        available <- c(available, file.path(p, matching_files))
+      }
     }
     if (length(available) == 0L) 
-        stop(gettextf("No snippet matching '%s'", name), domain = NA)
+      stop(gettextf("No snippet matching '%s'", name), domain = NA)
     if (length(available) > max.files) {
-        available <- utils::head(available, max.files)
-        warning(
-          gettextf("Limiting to %i files.  Increase max.files if you want more.", max.files)
-        )
+      available <- utils::head(available, max.files)
+      warning(
+        gettextf("Limiting to %i files.  Increase max.files if you want more.", max.files)
+      )
     }
     if (ask == "default") 
-        ask <- echo && grDevices::dev.interactive(orNone = TRUE)
+      ask <- echo && grDevices::dev.interactive(orNone = TRUE)
     if (.Device != "null device") {
-        oldask <- grDevices::devAskNewPage(ask = ask)
-        on.exit(grDevices::devAskNewPage(oldask), add = TRUE)
+      oldask <- grDevices::devAskNewPage(ask = ask)
+      on.exit(grDevices::devAskNewPage(oldask), add = TRUE)
     }
     op <- options(device.ask.default = ask)
     on.exit(options(op), add = TRUE)
-    for (file in re_order(available)) {
+    for (file in available) {
       fname <- basename(tools::file_path_sans_ext(file))
       if (echo) {
         cat(paste0("\n", "## snippet: ", fname, "\n"))
@@ -98,7 +147,7 @@ function (name, execute = TRUE, view = !execute, echo = TRUE,
                keep.source = TRUE)
       }
     }
-}
+  }
 
 # reorder vector of file names
 re_order <- function(files) {
