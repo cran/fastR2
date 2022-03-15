@@ -4,18 +4,20 @@
 \name{Unemployment}
 \alias{Unemployment}
 \title{Unemployment data}
-\format{A data.frame with 10 observations on the following 4 variables.
+\format{
+A data.frame with 10 observations on the following 4 variables.
 \itemize{
    \item{\code{unemp }}{Millions of unemployed people}
    \item{\code{production }}{Federal Reserve Board index of industrial production}
    \item{\code{year }}{}
    \item{\code{iyear }}{indexed year}
-}}
+}
+}
 \source{
 Paul F. Velleman and Roy E. Welsch. 
 "Efficient Computing of Regression Diagnostics",
 The American Statistician, Vol. 35, No. 4 (Nov., 1981), pp. 234-242.
-(http://www.jstor.org/stable/2683296)
+(https://www.jstor.org/stable/2683296)
 }
 \usage{
 data(Unemployment)

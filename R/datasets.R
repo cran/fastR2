@@ -269,6 +269,8 @@ NULL
 #' @references Appeared in Devore's "Probability and Statsistics for Engineers and 
 #' the Sciences (6th ed).  The variables have been renamed.
 #' 
+NULL
+ 
 #' #' Concrete Compressive Strength Data
 #' 
 #' These data were collected by I-Cheng Yeh to determine how the compressive
@@ -295,15 +297,14 @@ NULL
 #' concrete using artificial neural networks," \cite{Cement and Concrete
 #' Research}, Vol. 28, No. 12, pp. 1797-1808.
 #' @source Data were obtained from the Machine Learning Repository
-#' (\url{http://archive.ics.uci.edu/ml/}) where they were deposited by I-Cheng
-#' Yeh (\email{icyeh at chu.edu.tw}) who retains the copyright for these data.
+#' (\url{https://archive.ics.uci.edu/ml/}) where they were deposited by I-Cheng
+#' Yeh (\email{icyeh@chu.edu.tw}) who retains the copyright for these data.
 #' @keywords datasets
 #' @examples
 #' 
 #' data(Concrete)
 #' 
-"ConcreteAll"
-
+NULL
 
 
 #' Cooling Water
@@ -364,7 +365,7 @@ NULL
 #' }
 #' 
 #' @keywords datasets
-NA
+NULL
 
 
 
@@ -387,7 +388,7 @@ NA
 #' @references W.S. Gosset, "The Probable Error of a Mean," Biometrika, 6
 #' (1908), pp 1-25.
 #' @source These data are also available at DASL, the data and story library
-#' (\url{http://lib.stat.cmu.edu/DASL/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -421,7 +422,7 @@ NULL
 #' \code{wren}} }
 #' @references These data are also available from DASL, the data and story
 #' library 
-#' (\url{http://lib.stat.cmu.edu/DASL/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @source L.H.C. Tippett, \emph{The Methods of Statistics}, 4th Edition, John
 #' Wiley and Sons, Inc., 1952, p. 176.
 #' @keywords datasets
@@ -533,7 +534,7 @@ NULL
 #' on maximum grip strength and muscular endurance.  \emph{Journal of Sports
 #' Medicine and Physical Fitness}, 23, 253-256.
 #' @source These data are available from OzDASL, the Australasian data and
-#' story library (\url{http://www.statsci.org/data/}).
+#' story library (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -607,7 +608,7 @@ NULL
 #' \item{week2}{ number of fumbles on November 13, 2010}
 #' \item{week3}{ number of fumbles on November 20, 2010} }
 #' @source
-#' \url{http://www.teamrankings.com/college-football/stat/fumbles-per-game}
+#' \url{https://www.teamrankings.com/college-football/stat/fumbles-per-game}
 #' @keywords datasets
 #' @examples
 #' 
@@ -814,7 +815,7 @@ NULL
 #' controversy", \emph{The Columbus Dispatch} (November, 21, 1993), B7.
 #' @source These data are available from DASL, the data and story library
 # (\url{ftp://sunsite.univie.ac.at/mirrors/lib.stat.cmu.edu/DASL/.index.html}).
-#' (\url{http://lib.stat.cmu.edu/DASL/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -920,7 +921,7 @@ NULL
 #' Independence of Central Banks and Its Effect on Policy Outcomes," World Bank
 #' Economic Review, Vol. 6 No. 3 (Sept 1992), 353-398.
 #' @source These data are available from OzDASL, the Australasian Data and
-#' Story Library (\url{http://www.statsci.org/data/}).
+#' Story Library (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -968,7 +969,7 @@ NULL
 #' 63, 418-424.
 #' @source These data are available at DASL, the data and story library
 # (\url{ftp://sunsite.univie.ac.at/mirrors/lib.stat.cmu.edu/DASL/.index.html}).
-#' (\url{http://lib.stat.cmu.edu/DASL/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -1152,7 +1153,7 @@ NULL
 #' out} \item{A}{ assists} \item{TO}{ turn overs}
 #' \item{Blk}{ blocked shots} \item{Stl}{ steals}
 #' \item{Pts}{ points scored} \item{PTSG}{ points per game} }
-#' @source MIAA sports archives (\url{http://www.miaa.org/})
+#' @source MIAA sports archives (\url{https://www.miaa.org/})
 #' @keywords datasets
 #' @examples
 #' 
@@ -1222,7 +1223,7 @@ NULL
 #' \item{season}{ a character indicating which season the game belonged to}
 #' \item{postseason}{ a logical indicating whether the game is a postseason game}
 #' }
-#' @source \url{http://kenpom.com}
+#' @source \url{https://kenpom.com}
 #' @keywords datasets
 #' @examples
 #' 
@@ -1413,7 +1414,7 @@ NULL
 #' conducted by statistics students? \emph{Journal of Statistics Education}, 2,
 #' no 1.
 #' @source These data are also available at OzDASL, the Australasian Data and
-#' Story Library (\url{http://www.statsci.org/data/}).
+#' Story Library (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -1542,7 +1543,7 @@ NULL
 #' which pigs were rolled (5 or 8 inches)} \item{start}{ starting
 #' position of the pigs (0 = both pigs backwards, 1 = one bacwards one
 #' forwards, 2 = both forwards)} }
-#' @source John C. Kern II, Duquesne University (\email{kern at mathcs.duq.edu})
+#' @source John C. Kern II, Duquesne University (\email{kern@mathcs.duq.edu})
 #' @keywords datasets
 #' @examples
 #' 
@@ -1637,7 +1638,7 @@ NULL
 #' modelling dispersion in generalized linear models. Environmetrics 10,
 #' 696-709. \url{http://www.statsci.org/smyth/pubs/ties98tr.html}.
 #' @source These data are also available from OzDASL, the Australian Data and
-#' Story Library (\url{http://www.statsci.org/data/}).  (Note: The time measurements
+#' Story Library (\url{https://dasl.datadescription.com/}).  (Note: The time measurements
 #' of the data at OzDASL are in units of tens of hours.)
 #' @keywords datasets
 #' @examples
@@ -1682,7 +1683,7 @@ NULL
 #' Physical Education and Recreation at the Virginia Polytechnic Institute and
 #' State University, 1983.
 #' @source These data are also available at OzDASL
-#' (\url{http://www.statsci.org/data/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -1792,7 +1793,7 @@ NULL
 #' \& Taste Treatment and Research Foundation, Chicago.
 #' @source These data are also available at DASL, the data and story library
 # (\url{ftp://sunsite.univie.ac.at/mirrors/lib.stat.cmu.edu/DASL/.index.html}).
-#' (\url{http://lib.stat.cmu.edu/DASL/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -1834,7 +1835,7 @@ NULL
 #' usage and data collection} \item{weight}{ weight of bar of soap (in
 #' grams) } }
 #' @source Data collected by Rex Boggs and available from OzDASL
-#' (\url{http://www.statsci.org/data/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -1910,7 +1911,7 @@ NULL
 #' \code{fast}, \code{medium}, or \code{slow}} }
 #' @source These data are available at DASL, the data and story library
 # (\url{ftp://sunsite.univie.ac.at/mirrors/lib.stat.cmu.edu/DASL/.index.html}).
-#' (\url{http://lib.stat.cmu.edu/DASL/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -1949,7 +1950,7 @@ NULL
 #' Cleveland, W. S. \emph{Visualizing Data}. 1993.
 #' @source These data are available at DASL, the data and story library
 # (\url{ftp://sunsite.univie.ac.at/mirrors/lib.stat.cmu.edu/DASL/.index.html}.
-#' (\url{http://lib.stat.cmu.edu/DASL/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -2046,7 +2047,7 @@ NULL
 #' Treadware of Commercial Tires", \emph{Rubber Age}, 73:2 (May 1953).
 #' @source These data are available at DASL, the Data and Story Library
 # (\url{ftp://sunsite.univie.ac.at/mirrors/lib.stat.cmu.edu/DASL/.index.html}).
-#' (\url{http://lib.stat.cmu.edu/DASL/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 
@@ -2162,7 +2163,7 @@ NULL
 #' Paul F. Velleman and Roy E. Welsch. 
 #' "Efficient Computing of Regression Diagnostics",
 #' The American Statistician, Vol. 35, No. 4 (Nov., 1981), pp. 234-242.
-#' (http://www.jstor.org/stable/2683296)
+#' (https://www.jstor.org/stable/2683296)
 #' @examples
 #' data(Unemployment)
 
@@ -2190,7 +2191,7 @@ NULL
 #' @source These data are from the United States Department of Labor Statistics
 #' and are also available at DASL, the Data and Story Library
 # (\url{ftp://sunsite.univie.ac.at/mirrors/lib.stat.cmu.edu/DASL/.index.html}).
-#' (\url{http://lib.stat.cmu.edu/DASL/}).
+#' (\url{https://dasl.datadescription.com/}).
 #' @keywords datasets
 #' @examples
 #' 

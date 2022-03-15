@@ -4,11 +4,13 @@
 \name{Cuckoo}
 \alias{Cuckoo}
 \title{Cuckoo eggs in other birds' nests}
-\format{A data frame with 120 observations on the following 2 variables.
+\format{
+A data frame with 120 observations on the following 2 variables.
 \itemize{ \item{length}{ length of egg (mm)}
 \item{species}{ a factor with levels \code{hedge sparrow}
 \code{meadow pipet} \code{pied wagtail} \code{robin} \code{tree pipet}
-\code{wren}} }}
+\code{wren}} }
+}
 \source{
 L.H.C. Tippett, \emph{The Methods of Statistics}, 4th Edition, John
 Wiley and Sons, Inc., 1952, p. 176.
@@ -28,6 +30,6 @@ gf_boxplot(length ~ species, data = Cuckoo)
 \references{
 These data are also available from DASL, the data and story
 library 
-(\url{http://lib.stat.cmu.edu/DASL/}).
+(\url{https://dasl.datadescription.com/}).
 }
 \keyword{datasets}
