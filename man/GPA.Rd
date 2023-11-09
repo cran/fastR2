@@ -6,9 +6,12 @@
 \title{GPA, ACT, and SAT scores}
 \format{
 A data frame with 271 observations on the following 4 variables.
-\itemize{ \item{satm}{ SAT mathematics score}
-\item{satv}{ SAT verbal score} \item{act}{ ACT score}
-\item{GPA}{ college grade point average} }
+\describe{ 
+\item{act}{ ACT score}
+\item{gpa}{ college grade point average} 
+\item{satm}{ SAT mathematics score}
+\item{satv}{ SAT verbal score} 
+}
 }
 \description{
 GPA, ACT, and SAT scores for a sample of students.

@@ -6,11 +6,13 @@
 \title{Death Penalty and Race}
 \format{
 A data frame with 326 observations.  
-\itemize{ \item{death}{ a factor with levels \code{Yes}
-\code{No}} \item{penalty}{ a factor with levels \code{death}
-\code{other}} \item{victim}{ a factor with levels 
-\code{Bl} \code{Wh})} \item{Defendant}{ a factor
-with levels \code{Bl} \code{Wh} } }
+\describe{ 
+\item{id}{ a subject id}
+\item{victim}{ a factor with levels \code{Bl} \code{Wh})} 
+\item{defendant}{ a factor with levels \code{Bl}, \code{Wh} } 
+\item{death}{ a factor with levels \code{Yes}, \code{No}} 
+\item{penalty}{ a factor with levels \code{death} \code{other}} 
+}
 }
 \source{
 Radelet, M. (1981). Racial characteristics and imposition of the
